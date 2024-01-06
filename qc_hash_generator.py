@@ -118,8 +118,6 @@ def create_qc_structfields(csv_data):
     # length of the unhashed-CRC.
     struct_fields.append(StructField('crc_strlen', ITYPE_FLOAT))
 
-    print(struct_fields)
-
 def generate_qc_file(csv_data):
     '''
     Calls for population of StructFields and prompts
