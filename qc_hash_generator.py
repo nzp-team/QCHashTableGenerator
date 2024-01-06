@@ -3,7 +3,7 @@ Nazi Zombies: Portable QuakeC CRC generator
 
 Takes input .CSV files and outputs an FTEQCC-compilable
 QuakeC struct with its contents, always assumes the first
-entry should be XMODEM CRC16 hashed, adding its length
+entry should be IBM 3740 CRC16 hashed, adding its length
 as an entry as well, for collision detection.
 """
 
@@ -141,7 +141,7 @@ def read_csv_data():
     for value in csv_data.values:
         original_lengths.append(len(value[0]))
         original_names.append(value[0])
-        value[0] = int(crc16.xmodem(str.encode(value[0])))
+        value[0] = int(crc16.ibm_3740(str.encode(value[0])))
 
     # Now order everything by ascending order
     csv_data = csv_data.sort_values(csv_data.columns[0])
@@ -155,7 +155,7 @@ def fetch_cli_arguments():
     Initiates ArgParser with all potential command line arguments.
     '''
     global args
-    parser = argparse.ArgumentParser(description='XMODEM CRC16 hash generator in FTE QuakeC-readable data structure.')
+    parser = argparse.ArgumentParser(description='IBM 3740 CRC16 hash generator in FTE QuakeC-readable data structure.')
     parser.add_argument('-i', '--input-file',
                         help='.CSV input file to parse.', required=True)
     parser.add_argument('-o', '--output-file',

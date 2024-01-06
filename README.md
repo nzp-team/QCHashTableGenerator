@@ -1,6 +1,6 @@
 # (FTE-)QuakeC Hash Table Generator
 
-`QCHashTableGenerator` is a simple utility designed to take in `.CSV` input files and generate an FTEQCC-compilable hash table structure, hashed using XMODEM CRC16. The overall goal is to ease compute time by mitigating the overall amount of string comparisons your QuakeC project may perform.
+`QCHashTableGenerator` is a simple utility designed to take in `.CSV` input files and generate an FTEQCC-compilable hash table structure, hashed using IBM 3740 CRC16. The overall goal is to ease compute time by mitigating the overall amount of string comparisons your QuakeC project may perform.
 
 It makes the assumption that the first value in your input `.CSV` is the value you want to hash. Given this example, `old_path` will be replaced with a generated hash:
 
